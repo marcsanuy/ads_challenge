@@ -44,6 +44,14 @@ class AdController extends Controller
             'publication_date' => 'required',
         ]);
 
+        $ad = new Ad($request->all());
+
+        $response = $ad->checkIfTitleAndDescriptionAreTheSame();
+
+        if($response == true){
+            return view('errors.sameTitleAndDescription',['response'=>$response]);
+        }
+
         Ad::create($request->all());
 
         return redirect()->route('ads.index')
