@@ -46,16 +46,23 @@ class AdController extends Controller
 
         $ad = new Ad($request->all());
 
+        $response = $ad->checkIfTitleHasMoreThan50Chart();
+        
+        if($response == true){
+            
+            return redirect()->route('ads.create')->withErrors('You can not write more than 50 charts.');
+        }
+
         $response = $ad->checkIfTitleAndDescriptionAreTheSame();
 
         if($response == true){
-            return view('errors.sameTitleAndDescription',['response'=>$response]);
+            
+            return redirect()->route('ads.create')->withErrors('The title and description can not be the same.');
         }
 
         Ad::create($request->all());
 
-        return redirect()->route('ads.index')
-            ->with('success'.'Ad added successfully.');
+        return redirect()->route('ads.index')->with('success'.'Ad added successfully.');
     }
 
     /**

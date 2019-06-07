@@ -1,1 +1,0 @@
-<script> alert('El titulo y la descripción no pueden ser iguales'); </script>

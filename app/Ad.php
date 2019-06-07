@@ -18,4 +18,14 @@ class Ad extends Model
         return false;
 
     }
+
+    public function checkIfTitleHasMoreThan50Chart(){
+
+        if(strlen($this->title) >50 ){
+            return true;
+        }
+
+        return false;
+    }
+    
 }
