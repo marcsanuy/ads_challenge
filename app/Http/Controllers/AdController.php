@@ -44,6 +44,8 @@ class AdController extends Controller
             'publication_date' => 'required',
         ]);
 
+        //Smell code, fix it later unifying errors, now priorize tdd, sprint2 and 3.
+
         $ad = new Ad($request->all());
 
         $response = $ad->checkIfTitleHasMoreThan50Chart();
@@ -59,6 +61,8 @@ class AdController extends Controller
             
             return redirect()->route('ads.create')->withErrors('The title and description can not be the same.');
         }
+
+        
 
         Ad::create($request->all());
 
