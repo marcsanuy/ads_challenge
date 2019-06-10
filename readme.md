@@ -1,24 +1,33 @@
 Run instructions:
 
 Download repo.
+
 Open in your texcode editor.
+
 Copy and paste .env.example file and rename it to .env, rename database to ads, user: root, password: none.
+
 Now create a local database with (Xampp, Wampp, Mampp or similars) database name: ads, user: root, password: none.
 
 Now open terminal and type:
+
 composer install
+
 (Wait a moment until finish downloading dependencies).
 
 type:
+
 composer update
+
 (Wait a moment until finish updating dependencies).
 
 type:
+
 php artisan key:generate
 
 php artisan migrate
 
 php artisan serve
+
 (now open the localhost url to execute this aplication)
 
 
