@@ -22,6 +22,8 @@ class AdTest extends TestCase
 
     // }
 
+    // Pending refactoring, do not use magic numbers *1
+
      function test_title_is_more_than_50(){
         $ad = new Ad();
         $ad->title = '12345678909876543212345678909876543211234567898765432123456789';
@@ -51,20 +53,30 @@ class AdTest extends TestCase
         $response = $ad->checkIfTitleAndDescriptionAreTheSame();
         $this->assertEquals($response,false);
     }
+// Pending refactoring, do not use magic numbers *1
 
-    // function expiration_ad_date(){
 
-    // }
+   
+     function test_ads_expire_past_date_expiration(){
+        $ad = new Ad();
+        $ad->title = 'expire';
+        $ad->description = 'expiredate';
+        $ad->date = '';
+        $response = $ad->checkIfAdExpireProperlyOnTheIndicatedDate();
+        $this->assertEquals($response,true);
+     }
 
-    // function maximum_ads_100(){
+     // limit 100 ads
+    //  function test_maximum_ads_limit(){
+        
 
-    // }
+    //  }
 
-    // function delete_ads_greater_than_100(){
+    //  function test_delete_ads_greater_than_limit(){
 
-    // }
+    //  }
 
-    // function delete_older_ad(){
+    //  function test_delete_older_ad(){
 
-    // }
+    //  }
 }

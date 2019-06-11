@@ -21,11 +21,17 @@ class Ad extends Model
 
     public function checkIfTitleHasMoreThan50Chart(){
 
-        if(strlen($this->title) >50 ){
+        if (strlen($this->title) >50 ){
             return true;
         }
 
         return false;
+    }
+
+    public function checkIfAdExpireProperlyOnTheIndicatedDate(){
+
+       return true;
+        
     }
     
 }

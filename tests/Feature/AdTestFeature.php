@@ -18,4 +18,19 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    // function test_index_shows_all_ads_correctly(){
+
+    // }
+    
+    // function test_create_ads(){
+        
+    // }
+
+    // function test_delete_ads(){
+        
+       
+    // }
 }
+
+

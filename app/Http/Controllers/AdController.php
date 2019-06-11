@@ -62,11 +62,15 @@ class AdController extends Controller
             return redirect()->route('ads.create')->withErrors('The title and description can not be the same.');
         }
 
+
+        //sprint2:
+        
+
         
 
         Ad::create($request->all());
 
-        return redirect()->route('ads.index')->with('success'.'Ad added successfully.');
+        return redirect()->route('ads.index')->with('success','Ad added successfully.');
     }
 
     /**
@@ -116,4 +120,6 @@ class AdController extends Controller
         return redirect()->route('ads.index')
             ->with('success', 'Ad deleted successfully.');
     }
+
+   
 }
