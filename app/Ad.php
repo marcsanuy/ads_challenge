@@ -33,5 +33,11 @@ class Ad extends Model
        return true;
         
     }
+
+    public function checkIfAdsAreNotGreaterThanLimit(){
+
+        return true;
+        
+    }
     
 }

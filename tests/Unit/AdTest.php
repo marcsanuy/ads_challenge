@@ -67,14 +67,16 @@ class AdTest extends TestCase
      }
 
      // limit 100 ads
-    //  function test_maximum_ads_limit(){
-        
+      function test_maximum_ads_limit(){
+        $ad = new Ad();
+        $response = $ad->checkIfAdsAreNotGreaterThanLimit();
+        $this->assertGreaterThanOrEqual($response,true);
 
-    //  }
+      }
 
     //  function test_delete_ads_greater_than_limit(){
 
-    //  }
+    //    }
 
     //  function test_delete_older_ad(){
 
