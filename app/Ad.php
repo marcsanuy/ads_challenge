@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad extends Model
 {
+    public $numberOfAds = 99;
+    public $limit = 100;
+    
+    
     protected $fillable = [
         'title', 'description', 'publication_date'
     ];
@@ -34,9 +38,11 @@ class Ad extends Model
         
     }
 
-    public function checkIfAdsAreNotGreaterThanLimit(){
-
-        return true;
+    public function checkIfAdsAreGreaterThanLimit(){
+        if($this->numberOfAds > $this->limit) {
+            return true;
+        }
+        return false;
         
     }
     

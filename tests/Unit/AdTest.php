@@ -57,28 +57,35 @@ class AdTest extends TestCase
 
 
    
-     function test_ads_expire_past_date_expiration(){
+     function test_obtain_expired_ads(){
         $ad = new Ad();
-        $ad->title = 'expire';
-        $ad->description = 'expiredate';
-        $ad->date = '';
+        $expirationLimit = $ad->expirationLimit;
+        $ad->publication_date = $expirationLimit-31;
         $response = $ad->checkIfAdExpireProperlyOnTheIndicatedDate();
         $this->assertEquals($response,true);
      }
 
      // limit 100 ads
-      function test_maximum_ads_limit(){
+      function test_number_of_ads_are_over_limit(){
         $ad = new Ad();
-        $response = $ad->checkIfAdsAreNotGreaterThanLimit();
-        $this->assertGreaterThanOrEqual($response,true);
+        $limit = $ad->limit;
+        $ad->numberOfAds = $limit+1;
+        $response = $ad->checkIfAdsAreGreaterThanLimit();
+        $this->assertEquals($response, true);
+
+      }
+      function test_number_of_ads_are_under_limit(){
+        $ad = new Ad();
+        $limit = $ad->limit;
+        $ad->numberOfAds = $limit-1;
+        $response = $ad->checkIfAdsAreGreaterThanLimit();
+        $this->assertEquals($response, false);
 
       }
 
-    //  function test_delete_ads_greater_than_limit(){
+    
 
-    //    }
-
-    //  function test_delete_older_ad(){
+    //  function test_delete_older_ad_if_they_exceed_limit(){
 
     //  }
 }
