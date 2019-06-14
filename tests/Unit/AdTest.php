@@ -59,11 +59,23 @@ class AdTest extends TestCase
    
      function test_obtain_expired_ads(){
         $ad = new Ad();
-        $expirationLimit = $ad->expirationLimit;
-        $ad->publication_date = $expirationLimit-31;
+        $carbon = new \Carbon\Carbon();
+        $publication_date = $carbon->now();
+        $expirationDate = $publication_date->subDays();
         $response = $ad->checkIfAdExpireProperlyOnTheIndicatedDate();
         $this->assertEquals($response,true);
      }
+
+     function test_obtain_non_expired_ads(){
+      $ad = new Ad();
+      $carbon = new \Carbon\Carbon();
+      $publication_date = $carbon->now();
+      $expirationDate = $publication_date->subDays();
+      $response = $ad->checkIfADateIsNotexpired();
+      $this->assertEquals($response,true);
+   }
+
+   
 
      // limit 100 ads
       function test_number_of_ads_are_over_limit(){

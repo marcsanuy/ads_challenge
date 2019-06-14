@@ -22,6 +22,8 @@ class Ad extends Model
         return false;
 
     }
+    
+
 
     public function checkIfTitleHasMoreThan50Chart(){
 
@@ -32,16 +34,34 @@ class Ad extends Model
         return false;
     }
 
+
+
     public function checkIfAdExpireProperlyOnTheIndicatedDate(){
 
-       return true;
-        
+        if($this->publication_date >= $this->expirationDate){
+            return true;
+        }
+
+        return false;
     }
+    
+    public function checkIfADateIsNotexpired(){
+
+        if($this->publication_date <= $this->expirationDate){
+            return true;
+        
+        }    
+        return false;       
+       
+    }
+
+
 
     public function checkIfAdsAreGreaterThanLimit(){
         if($this->numberOfAds > $this->limit) {
             return true;
         }
+
         return false;
         
     }
