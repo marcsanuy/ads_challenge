@@ -61,7 +61,7 @@ class AdTest extends TestCase
         $ad = new Ad();
         $carbon = new \Carbon\Carbon();
         $publication_date = $carbon->now();
-        $expirationDate = $publication_date->subDays();
+        $expirationDate = $publication_date->addDays();
         $response = $ad->checkIfAdExpireProperlyOnTheIndicatedDate();
         $this->assertEquals($response,true);
      }
@@ -70,7 +70,7 @@ class AdTest extends TestCase
       $ad = new Ad();
       $carbon = new \Carbon\Carbon();
       $publication_date = $carbon->now();
-      $expirationDate = $publication_date->subDays();
+      $expirationDate = $publication_date->addDays();
       $response = $ad->checkIfADateIsNotexpired();
       $this->assertEquals($response,true);
    }
