@@ -44,7 +44,7 @@ class AdController extends Controller
             'publication_date' => 'required',
         ]);
 
-        //Smell code, fix it later unifying errors, now priorize tdd, sprint2 and 3.
+        //Smell code, fix it later unifying errors, now priorize tdd.
 
         $ad = new Ad($request->all());
 

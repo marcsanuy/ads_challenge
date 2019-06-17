@@ -20,7 +20,7 @@ class AdTest extends TestCase
 
     
 
-    // Pending refactoring, do not use magic numbers *1
+    // Pending refactoring, do not use magic numbers --------------------------------------------------
 
      function test_title_is_more_than_50(){
         $ad = new Ad();
@@ -35,6 +35,8 @@ class AdTest extends TestCase
         $response = $ad->checkIfTitleHasMoreThan50Chart();
         $this->assertEquals($response, false);
      }
+
+     // Pending refactoring, do not use magic numbers ----------------------------------------------------------
 
     function test_title_equal_description(){
         $ad = new Ad();
@@ -51,7 +53,7 @@ class AdTest extends TestCase
         $response = $ad->checkIfTitleAndDescriptionAreTheSame();
         $this->assertEquals($response,false);
     }
-// Pending refactoring, do not use magic numbers *1
+
 
 
    
