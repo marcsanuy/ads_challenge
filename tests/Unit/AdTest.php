@@ -18,9 +18,7 @@ class AdTest extends TestCase
         $this->assertTrue(true);
     }
 
-    // function form_not_empty(){
-
-    // }
+    
 
     // Pending refactoring, do not use magic numbers *1
 
@@ -60,23 +58,24 @@ class AdTest extends TestCase
      function test_obtain_expired_ads(){
         $ad = new Ad();
         $carbon = new \Carbon\Carbon();
-        $publication_date = $carbon->now();
-        $expirationDate = $publication_date->addDays();
+        $today = $carbon->now();
+        $ad->publication_date = $today->subDays($ad->daysToExpire);
+
         $response = $ad->checkIfAdExpireProperlyOnTheIndicatedDate();
         $this->assertEquals($response,true);
      }
 
-     function test_obtain_non_expired_ads(){
+     function test_obtain_not_expired_ads(){
       $ad = new Ad();
       $carbon = new \Carbon\Carbon();
-      $publication_date = $carbon->now();
-      $expirationDate = $publication_date->addDays();
-      $response = $ad->checkIfADateIsNotexpired();
-      $this->assertEquals($response,true);
+      $today = $carbon->now();
+      $ad->publication_date = $today->subDays($ad->daysToExpire-1);
+
+      $response = $ad->checkIfAdExpireProperlyOnTheIndicatedDate();
+      $this->assertEquals($response,false);
    }
 
    
-
      // limit 100 ads
       function test_number_of_ads_are_over_limit(){
         $ad = new Ad();
@@ -97,7 +96,5 @@ class AdTest extends TestCase
 
     
 
-    //  function test_delete_older_ad_if_they_exceed_limit(){
-
-    //  }
+    
 }

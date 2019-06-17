@@ -63,9 +63,7 @@ class AdController extends Controller
         }
 
 
-        //sprint2:
-
-        
+              
         
 
         
@@ -123,5 +121,14 @@ class AdController extends Controller
             ->with('success', 'Ad deleted successfully.');
     }
 
-   
+    //delete expired ads with a cronjob (systems)
+    public function expire(Ad $ad)
+    {
+        if($ad->checkIfAdExpireProperlyOnTheIndicatedDate()){
+            return  false;
+        }
+        $ad->delete();
+        return true;
+        
+    }
 }

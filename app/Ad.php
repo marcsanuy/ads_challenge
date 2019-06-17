@@ -8,6 +8,8 @@ class Ad extends Model
 {
     public $numberOfAds = 99;
     public $limit = 100;
+    public $today;
+    public $daysToExpire = 29;
     
     
     protected $fillable = [
@@ -37,22 +39,14 @@ class Ad extends Model
 
 
     public function checkIfAdExpireProperlyOnTheIndicatedDate(){
+        $carbon = new \Carbon\Carbon();
+        $today = $carbon->now();
 
-        if($this->publication_date >= $this->expirationDate){
+        if($this->publication_date <= $today->subDays($this->daysToExpire) ){
             return true;
         }
+            return false;
 
-        return false;
-    }
-    
-    public function checkIfADateIsNotexpired(){
-
-        if($this->publication_date <= $this->expirationDate){
-            return true;
-        
-        }    
-        return false;       
-       
     }
 
 
