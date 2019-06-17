@@ -18,9 +18,7 @@ class AdTest extends TestCase
         $this->assertTrue(true);
     }
 
-    // function form_not_empty(){
-
-    // }
+    
 
      function test_title_is_more_than_50(){
         $ad = new Ad();
@@ -52,19 +50,5 @@ class AdTest extends TestCase
         $this->assertEquals($response,false);
     }
 
-    // function expiration_ad_date(){
-
-    // }
-
-    // function maximum_ads_100(){
-
-    // }
-
-    // function delete_ads_greater_than_100(){
-
-    // }
-
-    // function delete_older_ad(){
-
-    // }
+    
 }
