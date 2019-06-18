@@ -62,6 +62,12 @@ class AdController extends Controller
             return redirect()->route('ads.create')->withErrors('The title and description can not be the same.');
         }
 
+        $response = $ad->checkIfAdsAreGreaterThanLimit();
+
+        if($response == true){
+            
+            return redirect()->route('ads.create')->withErrors('The oldest ad that currently exists has to be removed.');
+        }
 
               
         
@@ -81,7 +87,7 @@ class AdController extends Controller
      */
     public function show(Ad $ad)
     {
-        //
+        return view('ads.show',compact('ad'));
     }
 
     /**

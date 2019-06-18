@@ -72,11 +72,10 @@
 
    
 
-                    {{-- <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a> --}}
+                    <a class="btn btn-info" href="{{ route('ads.show',$ad->id) }}">Show</a>
 
     
 
-                    {{-- <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a> --}}
 
    
 
