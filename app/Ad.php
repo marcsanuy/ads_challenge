@@ -27,7 +27,7 @@ class Ad extends Model
     
 
 
-    public function checkIfTitleHasMoreThan50Chart(){
+    public function checkIfTitleHasMoreThanLimitChart(){
 
         if (strlen($this->title) >50 ){
             return true;

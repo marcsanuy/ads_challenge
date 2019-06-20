@@ -20,23 +20,23 @@ class AdTest extends TestCase
 
     
 
-    // Pending refactoring, do not use magic numbers --------------------------------------------------
+    
 
-     function test_title_is_more_than_50(){
+     function test_title_is_more_than_limit(){
         $ad = new Ad();
         $ad->title = '12345678909876543212345678909876543211234567898765432123456789';
-        $response = $ad->checkIfTitleHasMoreThan50Chart();
+        $response = $ad->checkIfTitleHasMoreThanLimitChart();
         $this->assertEquals($response, true);
      }
 
-     function test_title_is_less_than_50(){
+     function test_title_is_less_than_limit(){
         $ad = new Ad();
         $ad->title = '1';
-        $response = $ad->checkIfTitleHasMoreThan50Chart();
+        $response = $ad->checkIfTitleHasMoreThanLimitChart();
         $this->assertEquals($response, false);
      }
 
-     // Pending refactoring, do not use magic numbers ----------------------------------------------------------
+     
 
     function test_title_equal_description(){
         $ad = new Ad();

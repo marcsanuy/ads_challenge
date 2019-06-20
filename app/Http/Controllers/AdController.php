@@ -48,7 +48,7 @@ class AdController extends Controller
 
         $ad = new Ad($request->all());
 
-        $response = $ad->checkIfTitleHasMoreThan50Chart();
+        $response = $ad->checkIfTitleHasMoreThanLimitChart();
         
         if($response == true){
             
