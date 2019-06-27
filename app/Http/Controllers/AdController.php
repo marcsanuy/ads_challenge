@@ -69,11 +69,6 @@ class AdController extends Controller
             return redirect()->route('ads.create')->withErrors('The oldest ad that currently exists has to be removed.');
         }
 
-              
-        
-
-        
-
         Ad::create($request->all());
 
         return redirect()->route('ads.index')->with('success','Ad added successfully.');

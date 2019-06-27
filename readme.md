@@ -28,9 +28,12 @@ php artisan key:generate
 
 php artisan migrate
 
+php artisan db:seed
+
 php artisan serve
 
 (now open the localhost url to execute this aplication)
+http://x.x.x.x:xxxx/ads
 
 
 

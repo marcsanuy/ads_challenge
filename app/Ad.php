@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad extends Model
 {
-    public $numberOfAds = 99;
+    // public $numberOfAds = 99;
     public $limit = 100;
     public $today;
     public $daysToExpire = 29;
@@ -49,10 +49,15 @@ class Ad extends Model
 
     }
 
-
+    public function getTotal() {
+        return Ad::count();
+    }
 
     public function checkIfAdsAreGreaterThanLimit(){
-        if($this->numberOfAds > $this->limit) {
+
+
+        if($this->getTotal() >= $this->limit) {
+            
             return true;
         }
 

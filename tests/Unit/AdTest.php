@@ -82,19 +82,11 @@ class AdTest extends TestCase
       function test_number_of_ads_are_over_limit(){
         $ad = new Ad();
         $limit = $ad->limit;
-        $ad->numberOfAds = $limit+1;
         $response = $ad->checkIfAdsAreGreaterThanLimit();
         $this->assertEquals($response, true);
 
       }
-      function test_number_of_ads_are_under_limit(){
-        $ad = new Ad();
-        $limit = $ad->limit;
-        $ad->numberOfAds = $limit-1;
-        $response = $ad->checkIfAdsAreGreaterThanLimit();
-        $this->assertEquals($response, false);
-
-      }
+     
 
     
 
