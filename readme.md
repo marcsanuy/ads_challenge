@@ -1,5 +1,3 @@
-STILL WORKING...
-
 Run instructions:
 
 Download repo.
